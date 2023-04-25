@@ -4,16 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.util.ConfigReader;
 
+
 public class HomePage {
 
+
 	private WebDriver driver;
-	//private ConfigReader cg;                           
-	//two methods: String App_URL = cg.init_prop().getProperty("url");
+ 	//two methods: String App_URL = cg.init_prop().getProperty("url");
 	String HomePAGE_URL = ConfigReader.getHomePageUrl();
 	
+
 
 	@FindBy(xpath="//a[@class='nav-item nav-link']/following-sibling::a[1]")
 	//@CacheLookup
@@ -82,12 +86,13 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void gethomepageurl() {
+	public String gethomepageurl() {
 
 		driver.get(HomePAGE_URL);
+		return HomePAGE_URL;
 
 	}
-	
+
 
 	public String VerifyHomePageTitle() {
 
@@ -106,34 +111,47 @@ public class HomePage {
 	}
 
 	public RegisterPage clickOnRegisterLink(){
+	
 		RegisterLink.click();
 		return new RegisterPage(driver);
 
 	}
-	
-	public SigninPage clickOnSignLink(){
+
+	public LoginPage clickOnSignLink(){
 		SigninLink.click();
-		return new SigninPage(driver);
+		return new LoginPage(driver);
 
 	}
 	public String verifySigninPageURL()
 	{
 		return driver.getCurrentUrl();
 	}
-	
+
 	public String verifyRegisterPageURL()
 	{
 		return driver.getCurrentUrl();
 	}
+	public boolean islogoutmsgdisplayed()
+	
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (30));
+		wait.until(ExpectedConditions.visibilityOf(LogOutMsg)).isDisplayed();
+		
+		boolean logout_ms_display= LogOutMsg.isDisplayed();
+		return logout_ms_display;
+		
+	}
 
+	public void clickonSignOutLink()
+	{
 
-	/*
-	 * public void clickonSignOutLink() {
-	 * 
-	 * Signout.click(); boolean logout_ms_display= LogOutMsg.isDisplayed();
-	 * //Assert.assertEquals(logout_ms_display, true,
-	 * "User Logged Out Successfully"); }
-	 */
+		Signout.click();
+		
+	}
+	public boolean isSignoutDisplayed()
+	{
+		return(Signout.isDisplayed());
+	}
 	public void getStarted_home(String string) {
 
 		switch (string) {
@@ -142,27 +160,27 @@ public class HomePage {
 			getstart_datastructures.click();
 			break;
 		case "Arrays":
-			
+
 			getstart_array.click();
 			break;
 		case "Linkedlist":
-			
+
 			getstart_linkedlist.click();
 			break;
 		case "Stack":
-			
+
 			getstart_stack.click();
 			break;
 		case "Queue":
-			
+
 			getstart_queue.click();
 			break;
 		case "Tree":
-			
+
 			getstart_tree.click();
 			break;
 		case "Graph":
-			
+
 			getstart_graph.click();
 			break;
 		}
@@ -174,12 +192,12 @@ public class HomePage {
 		dropdown.click();
 		switch (string) {
 		case "Arrays":
-			
+
 			Arraysdropdown.click();
 			break;
 		case "Linkedlist":
 			LinkedListdropdown.click();
-			
+
 			break;
 		case "Stack":
 			Stackdropdown.click();
@@ -191,7 +209,7 @@ public class HomePage {
 			Treedropdown.click();
 			break;
 		case "Graph":
-		Graphdropdown.click();
+			Graphdropdown.click();
 			break;
 		}
 
@@ -200,11 +218,18 @@ public class HomePage {
 	public String getUserNotLoginMsg() {
 		String str_actual= UserNotLoginMsg.getText();
 		return str_actual;
-		
+
 	}
 
-	
-	
-	
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+	public void clickongetstart_DS()
+	{
+		getstart_datastructures.click();
+	}
+
+
+
 
 }

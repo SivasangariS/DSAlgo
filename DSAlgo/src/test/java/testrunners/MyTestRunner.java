@@ -11,8 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 		monochrome=true,
 	   
 		plugin = {"pretty",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-				"timeline:test-output-thread/",	
+				
 		}
 		
 		)

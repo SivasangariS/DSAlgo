@@ -46,5 +46,3 @@ Feature: HomePage Feature file
      Given The user opens Home Page
      When The user clicks "Register"
      Then The user should be redirected to Register form
-      
-      

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.qa.util.ConfigReader;
 
 public class StartPage {
+	
 	private WebDriver driver;
 
 	@FindBy(xpath="//button[text()='Get Started']")
