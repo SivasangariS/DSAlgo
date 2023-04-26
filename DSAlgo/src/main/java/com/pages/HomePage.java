@@ -15,6 +15,7 @@ public class HomePage {
 
 	private WebDriver driver;
  	//two methods: String App_URL = cg.init_prop().getProperty("url");
+	//two methods: String App_URL = cg.init_prop().getProperty("url");
 	String HomePAGE_URL = ConfigReader.getHomePageUrl();
 	
 

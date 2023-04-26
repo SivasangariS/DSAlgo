@@ -72,6 +72,7 @@ public class LoginPage {
 	public  boolean isValidationMessageDisplayed()
 	{
 		//password1.sendKeys(" ");
+		//password1.sendKeys(" ");
 		String Validation_Message  = UserName.getAttribute("validationMessage");
 		System.out.println("####### Validation_Message Username#########"+Validation_Message);
 		String Validation_Message1  = Password.getAttribute("validationMessage");
