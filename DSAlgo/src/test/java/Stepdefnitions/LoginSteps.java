@@ -92,6 +92,7 @@ public class LoginSteps {
 		homePage.clickOnSignLink();
 		//String userName = prop.getProperty("username");
 		//String passWord = prop.getProperty("password");
+		//String passWord = prop.getProperty("password");
 		loginPage.enterCredentials("Numpysdet84", "sdet84batch");
 		loginPage.doLogin();
 	}
