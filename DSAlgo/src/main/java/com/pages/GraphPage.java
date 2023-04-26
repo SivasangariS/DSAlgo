@@ -91,5 +91,6 @@ public class GraphPage {
 	public void clickOnGraphTryhereLink() {
 		GraphTryherelink.click();
 		//Loggerload.info("User clicked on Graph Try here link");
+		//Loggerload.info("User clicked on Graph Try here link");
 	}
 }
